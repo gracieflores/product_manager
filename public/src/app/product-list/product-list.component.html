@@ -1,0 +1,12 @@
+<div>
+    <h2>Products List</h2>
+    <div class="row" >
+        <div class="col" *ngFor="let product of products">
+            <img src="{{product.image_url}}" alt="amazing products" height="100" width="130">
+            <p>{{product.title}}</p>
+            <p>{{product.price}}</p>
+            <button [routerLink]="['/products', 'edit', product._id]" >Edit</button> <button (click)="delete(product._id)" >Delete</button>
+        </div>    
+    </div>
+    <br>
+</div>

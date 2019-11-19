@@ -1,0 +1,16 @@
+
+<p>Create a New Product</p>
+<div *ngIf="errs">
+    <div *ngFor="let err of errs">
+    <p>{{err}}</p> 
+    </div>
+</div>
+<p> {{ newProduct | json }} </p>
+<form (submit)="addProductEvent()">
+    <label>Title</label> <input type="text" name="title" [(ngModel)]="newProduct.title" /><br>
+    <label>Price</label> <input type="text" name="price" [(ngModel)]="newProduct.price" /><br>
+    <label>Image url</label><input type="text" name="image_url" [(ngModel)]="newProduct.image_url" />
+    <br><br>
+    <input type="submit" value="Create" />
+</form>
+<button [routerLink]="['/']">Cancel</button>

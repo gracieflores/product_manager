@@ -1,0 +1,16 @@
+
+<p>Edit Product</p>
+<div *ngIf="errs">
+    <div *ngFor="let err of errs">
+        <p>{{err}}</p> 
+    </div>
+</div>
+<p> {{ selectedProduct | json }} </p>
+<form (submit)="edit(selectedProduct._id)">
+    <label>Title</label> <input type="text" name="title"  value="{{selectedProduct?.title}}" [(ngModel)]="selectedProduct.title"><br>
+    <label>Price</label> <input type="text" name="price"  value="{{selectedProduct?.price}}" [(ngModel)]="selectedProduct.price"><br>
+    <label>Image url</label> <input type="text" name="image_url"  value="{{selectedProduct?.image_url}}" [(ngModel)]="selectedProduct.image_url"><br>
+    <br><br>
+    <input type="submit" value="Update">
+</form>
+<button [routerLink]="['/']">Cancel</button>
